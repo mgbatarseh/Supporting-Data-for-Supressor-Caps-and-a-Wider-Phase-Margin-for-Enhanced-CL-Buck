@@ -1,0 +1,22 @@
+** Profile: "SCHEMATIC1-zaid"  [ C:\Users\Zaid\Google Drive\Graduation Project\Orcad Simulation\3\Compensator-PSpiceFiles\SCHEMATIC1\zaid.sim ] 
+
+** Creating circuit file "zaid.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Users\Zaid\AppData\Roaming\SPB_16.6\cdssetup\OrCAD_PSpice/16.6.0/PSpice.ini file:
+.lib "C:\Cadence\SPB_16.6\tools\pspice\library\breakout.lib" 
+.lib "C:\Cadence\SPB_16.6\tools\pspice\library\analog.lib" 
+.lib "C:\Cadence\SPB_16.6\tools\pspice\library\nom.lib" 
+.lib "C:\Users\Zaid\Desktop\Orcad\IR2106.LIB" 
+
+*Analysis directives: 
+.TRAN  0 1000ns 0 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+.END

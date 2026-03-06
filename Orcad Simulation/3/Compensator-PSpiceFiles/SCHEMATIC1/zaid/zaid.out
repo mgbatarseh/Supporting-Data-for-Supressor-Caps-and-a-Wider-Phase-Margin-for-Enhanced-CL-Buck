@@ -1,0 +1,781 @@
+
+**** 04/28/16 11:38:16 ***** PSpice 16.6.0 (October 2012) ***** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-zaid"  [ C:\Users\Zaid\Google Drive\Graduation Project\Orcad Simulation\3\Compensator-PSpiceFiles\SCHEMATIC1
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "zaid.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Users\Zaid\AppData\Roaming\SPB_16.6\cdssetup\OrCAD_PSpice/16.6.0/PSpice.ini file:
+.lib "C:\Cadence\SPB_16.6\tools\pspice\library\breakout.lib" 
+.lib "C:\Cadence\SPB_16.6\tools\pspice\library\analog.lib" 
+.lib "C:\Cadence\SPB_16.6\tools\pspice\library\nom.lib" 
+.lib "C:\Users\Zaid\Desktop\Orcad\IR2106.LIB" 
+
+*Analysis directives: 
+.TRAN  0 1000ns 0 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source COMPENSATOR
+X_M1         N1 N16028 N2 IRF640NS
+V_V3         N1 0 DC 14 AC 0 0
+D_D1         0 N2 MBR1645
+L_L1         N2 N3  109.95u  
+C_C4         0 N3  750n  TC=0,0 
+R_R4         0 N3  5 TC=0,0 
+X_U3         N4 N8 N18283 0 N6 N154675 N2 N154677 IR2106 PARAMS:  CDELAY=50N
++  RDELAY=50 T1=-40 T2=25 T3=125 V1=10 V2=15 V3=20 TOFFT1=200N TOFFT2=200N
++  TOFFT3=200N TOFFV1=200N TOFFV2=200N TOFFV3=200N TONT1=210N TONT2=210N
++  TONT3=210N TONV1=210N TONV2=210N TONV3=210N
+D_D2         N4 N157730 MBR1645
+C_C5         N2 N6  2.2uF  TC=0,0 
+R_10         N154675 N16028  10 TC=0,0 
+R_R6         N10 N8  100 TC=0,0 
+R_1k         N154677 0  10 TC=0,0 
+V_V7         N4 0 DC 12 AC 0 0
+C_C6         0 N4  0.1uF  TC=0,0 
+U_DSTM1         STIM(1,1) $G_DPWR $G_DGND N10 IO_STM IO_LEVEL=0 
++ 0 0
++ +0 1
++REPEAT FOREVER
++ +3.57us 0
++  +6.43us 1
++ ENDREPEAT
+R_1k1         N18283 0  10 TC=0,0 
+R_5         N157730 N6  10 TC=0,0 
+
+**** RESUMING zaid.cir ****
+.END
+
+
+**** Generated AtoD and DtoA Interfaces ****
+
+*
+* Analog/Digital interface for node N10
+*
+* Moving U_DSTM1:OUT1 from analog node N10 to new digital node N10$DtoA
+X$N10_DtoA1
++ N10$DtoA
++ N10
++ $G_DPWR
++ $G_DGND
++ DtoA_STM
++       PARAMS: DRVH=   0      DRVL=   0      CAPACITANCE=   0     
+*
+* Analog/Digital interface power supply subcircuits
+*
+X$DIGIFPWR 0 DIGIFPWR
+
+
+**** 04/28/16 11:38:16 ***** PSpice 16.6.0 (October 2012) ***** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-zaid"  [ C:\Users\Zaid\Google Drive\Graduation Project\Orcad Simulation\3\Compensator-PSpiceFiles\SCHEMATIC1
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               MBR1645         X_M1.MD         X_M1.MD1        X_M1.MD2        
+          IS   34.759600E-06   40.985400E-12    0             100.000000E-12 
+           N    1.28952         1.17043        50                .693912     
+          BV   45             200                                            
+         IBV  200.000000E-06  250.000000E-06                                 
+          RS    9.403690E-03    7.242920E-03                    3.000000E-06 
+         CJO   10.000000E-12  800.000000E-12    1.532200E-09                 
+          VJ     .7             1.41926         1.34184                      
+           M                     .676432         .9                          
+          FC                                   10.000000E-09                 
+          EG     .428428        1.2                                          
+         XTI    5               4                                            
+
+
+               X_M1.MD3        X_U3.diode25    X_U3.diode625   
+          IS  100.000000E-12   10.000000E-15   10.000000E-15 
+           N     .693912                                     
+          BV                   25             625            
+         IBV                  100.000000E-06  100.000000E-06 
+          RS                     .01             .01         
+          VJ                     .75             .75         
+           M                     .333            .333        
+
+
+**** 04/28/16 11:38:16 ***** PSpice 16.6.0 (October 2012) ***** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-zaid"  [ C:\Users\Zaid\Google Drive\Graduation Project\Orcad Simulation\3\Compensator-PSpiceFiles\SCHEMATIC1
+
+
+ ****     MOSFET MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_M1.MM         
+               NMOS            
+       LEVEL    1            
+           L  100.000000E-06 
+           W  100.000000E-06 
+         VTO    4.12428      
+          KP    7.74523      
+       GAMMA    0            
+         PHI     .6          
+      LAMBDA    4.265640E-03 
+          IS    0            
+          JS    0            
+          PB     .8          
+        PBSW     .8          
+          CJ    0            
+        CJSW    0            
+        CGSO   10.600000E-06 
+        CGDO  100.000000E-12 
+        CGBO    0            
+         TOX    0            
+          XJ    0            
+       UCRIT   10.000000E+03 
+      DIOMOD    1            
+         VFB    0            
+        LETA    0            
+        WETA    0            
+          U0    0            
+        TEMP    0            
+         VDD    5            
+       XPART    0            
+
+
+**** 04/28/16 11:38:16 ***** PSpice 16.6.0 (October 2012) ***** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-zaid"  [ C:\Users\Zaid\Google Drive\Graduation Project\Orcad Simulation\3\Compensator-PSpiceFiles\SCHEMATIC1
+
+
+ ****     Voltage Controlled Switch MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U3._MD1_Trig1_P 
+         RON    1            
+        ROFF    5.000000E+09 
+         VON    4.99         
+        VOFF     .01         
+
+
+               X_U3._MD1_Trig2_P 
+         RON    1            
+        ROFF    5.000000E+09 
+         VON    4.99         
+        VOFF     .01         
+
+
+               X_U3._MD2_Uvcc_P 
+         RON    1            
+        ROFF    1.000000E+06 
+         VON    0            
+        VOFF    5            
+
+
+               X_U3._MD2_Uvcc_N 
+         RON    1            
+        ROFF    1.000000E+06 
+         VON    5            
+        VOFF    0            
+
+
+               X_U3._MD2_Nand1_P1 
+         RON    1            
+        ROFF    1.000000E+06 
+         VON    0            
+        VOFF    5            
+
+
+               X_U3._MD2_Nand1_N1 
+         RON    1            
+        ROFF    1.000000E+06 
+         VON    5            
+        VOFF    0            
+
+
+               X_U3._MD2_Nand1_N2 
+         RON    1            
+        ROFF    1.000000E+06 
+         VON    5            
+        VOFF    0            
+
+
+               X_U3._MD2_Nand1_P2 
+         RON    1            
+        ROFF    1.000000E+06 
+         VON    0            
+        VOFF    5            
+
+
+               X_U3._MD2_Nand2_P1 
+         RON    1            
+        ROFF    1.000000E+06 
+         VON    0            
+        VOFF    5            
+
+
+               X_U3._MD2_Nand2_N1 
+         RON    1            
+        ROFF    1.000000E+06 
+         VON    5            
+        VOFF    0            
+
+
+               X_U3._MD2_Nand2_N2 
+         RON    1            
+        ROFF    1.000000E+06 
+         VON    5            
+        VOFF    0            
+
+
+               X_U3._MD2_Nand2_P2 
+         RON    1            
+        ROFF    1.000000E+06 
+         VON    0            
+        VOFF    5            
+
+
+               X_U3._MD2_Inv1_N 
+         RON    1            
+        ROFF  100.000000E+06 
+         VON    5            
+        VOFF    0            
+
+
+               X_U3._MD2_Inv1_P 
+         RON    1            
+        ROFF  100.000000E+06 
+         VON    0            
+        VOFF    5            
+
+
+               X_U3._MD2_Inv2_N 
+         RON    1            
+        ROFF  100.000000E+06 
+         VON    5            
+        VOFF    0            
+
+
+               X_U3._MD2_Inv2_P 
+         RON    1            
+        ROFF  100.000000E+06 
+         VON    0            
+        VOFF    5            
+
+
+               X_U3._MD3_DlyHS_P1 
+         RON    1            
+        ROFF    1.000000E+06 
+         VON    0            
+        VOFF    5            
+
+
+               X_U3._MD3_DlyHS_P2 
+         RON    1            
+        ROFF    1.000000E+06 
+         VON    0            
+        VOFF    5            
+
+
+               X_U3._MD3_DlyHS_N1 
+         RON    1            
+        ROFF    1.000000E+06 
+         VON    5            
+        VOFF    0            
+
+
+               X_U3._MD3_DlyHS_MN1 
+         RON    1            
+        ROFF    1.000000E+06 
+         VON    5            
+        VOFF    0            
+
+
+               X_U3._MD3_DlyHS_MP2 
+         RON    1            
+        ROFF    1.000000E+06 
+         VON    0            
+        VOFF    5            
+
+
+               X_U3._MD3_DlyHS_MP1 
+         RON    1            
+        ROFF    1.000000E+06 
+         VON    0            
+        VOFF    5            
+
+
+               X_U3._MD3_DlyHS_delay_P 
+         RON   10            
+        ROFF    1.000000E+06 
+         VON    0            
+        VOFF    5            
+
+
+               X_U3._MD3_DlyHS_delay_N 
+         RON   10            
+        ROFF    1.000000E+06 
+         VON    5            
+        VOFF    0            
+
+
+               X_U3._MD3_DlyHS_N2 
+         RON    1            
+        ROFF    1.000000E+06 
+         VON    5            
+        VOFF    0            
+
+
+               X_U3._MD3_DlyHS_MN2 
+         RON    1            
+        ROFF    1.000000E+06 
+         VON    5            
+        VOFF    0            
+
+
+               X_U3._MD3_DlyLS_P1 
+         RON    1            
+        ROFF    1.000000E+06 
+         VON    0            
+        VOFF    5            
+
+
+               X_U3._MD3_DlyLS_P2 
+         RON    1            
+        ROFF    1.000000E+06 
+         VON    0            
+        VOFF    5            
+
+
+               X_U3._MD3_DlyLS_N1 
+         RON    1            
+        ROFF    1.000000E+06 
+         VON    5            
+        VOFF    0            
+
+
+               X_U3._MD3_DlyLS_MN1 
+         RON    1            
+        ROFF    1.000000E+06 
+         VON    5            
+        VOFF    0            
+
+
+               X_U3._MD3_DlyLS_MP2 
+         RON    1            
+        ROFF    1.000000E+06 
+         VON    0            
+        VOFF    5            
+
+
+               X_U3._MD3_DlyLS_MP1 
+         RON    1            
+        ROFF    1.000000E+06 
+         VON    0            
+        VOFF    5            
+
+
+               X_U3._MD3_DlyLS_delay_P 
+         RON   10            
+        ROFF    1.000000E+06 
+         VON    0            
+        VOFF    5            
+
+
+               X_U3._MD3_DlyLS_delay_N 
+         RON   10            
+        ROFF    1.000000E+06 
+         VON    5            
+        VOFF    0            
+
+
+               X_U3._MD3_DlyLS_N2 
+         RON    1            
+        ROFF    1.000000E+06 
+         VON    5            
+        VOFF    0            
+
+
+               X_U3._MD3_DlyLS_MN2 
+         RON    1            
+        ROFF    1.000000E+06 
+         VON    5            
+        VOFF    0            
+
+
+               X_U3._MD4_Inv1_N 
+         RON    1            
+        ROFF  100.000000E+06 
+         VON    5            
+        VOFF    0            
+
+
+               X_U3._MD4_Inv1_P 
+         RON    1            
+        ROFF  100.000000E+06 
+         VON    0            
+        VOFF    5            
+
+
+               X_U3._MD4_Inv2_N 
+         RON    1            
+        ROFF  100.000000E+06 
+         VON    5            
+        VOFF    0            
+
+
+               X_U3._MD4_Inv2_P 
+         RON    1            
+        ROFF  100.000000E+06 
+         VON    0            
+        VOFF    5            
+
+
+               X_U3._MD4_Nor_P1 
+         RON    1            
+        ROFF    1.000000E+06 
+         VON    0            
+        VOFF    5            
+
+
+               X_U3._MD4_Nor_P2 
+         RON    1            
+        ROFF    1.000000E+06 
+         VON    0            
+        VOFF    5            
+
+
+               X_U3._MD4_Nor_N1 
+         RON    1            
+        ROFF    1.000000E+06 
+         VON    5            
+        VOFF    0            
+
+
+               X_U3._MD4_Nor_N2 
+         RON    1            
+        ROFF    1.000000E+06 
+         VON    5            
+        VOFF    0            
+
+
+               X_U3._MD4_Inv3_N 
+         RON    1            
+        ROFF  100.000000E+06 
+         VON    5            
+        VOFF    0            
+
+
+               X_U3._MD4_Inv3_P 
+         RON    1            
+        ROFF  100.000000E+06 
+         VON    0            
+        VOFF    5            
+
+
+               X_U3._MD4_Uvbs_P 
+         RON    1            
+        ROFF    1.000000E+06 
+         VON    0            
+        VOFF    5            
+
+
+               X_U3._MD4_Uvbs_N                X_U3._MD4_RS_P1 X_U3._MD4_RS_P2 
+         RON    1                               1.000000E-03    1.000000E-03 
+        ROFF    1.000000E+06                    1.000000E+06    1.000000E+06 
+         VON    5                               0               0            
+        VOFF    0                               5               5            
+
+
+               X_U3._MD4_RS_N1 X_U3._MD4_RS_N2 X_U3._MD4_RS_N3 X_U3._MD4_RS_N4 
+         RON    1.000000E-03    1.000000E-03    1.000000E-03    1.000000E-03 
+        ROFF  100.000000E+06  100.000000E+06  100.000000E+06  100.000000E+06 
+         VON    5               5               5               5            
+        VOFF    0               0               0               0            
+
+
+               X_U3._MD4_RS_P4 X_U3._MD4_RS_P3 X_U3._MD4_OHS_P X_U3._MD4_OHS_N 
+         RON    1.000000E-03    1.000000E-03    1.000000E-03    1.000000E-03 
+        ROFF    1.000000E+06    1.000000E+06    1.000000E+09    1.000000E+09 
+         VON    0               0               0               5            
+        VOFF    5               5               5               0            
+
+
+               X_U3._MD4_Inv4_N 
+         RON    1            
+        ROFF  100.000000E+06 
+         VON    5            
+        VOFF    0            
+
+
+               X_U3._MD4_Inv4_P                X_U3._MD5_Inv_N X_U3._MD5_Inv_P 
+         RON    1                               1               1            
+        ROFF  100.000000E+06                  100.000000E+06  100.000000E+06 
+         VON    0                               5               0            
+        VOFF    5                               0               5            
+
+
+               X_U3._MD5_OLS_P X_U3._MD5_OLS_N 
+         RON    1.000000E-03    1.000000E-03 
+        ROFF    1.000000E+09    1.000000E+09 
+         VON    0               5            
+        VOFF    5               0            
+
+
+**** 04/28/16 11:38:16 ***** PSpice 16.6.0 (October 2012) ***** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-zaid"  [ C:\Users\Zaid\Google Drive\Graduation Project\Orcad Simulation\3\Compensator-PSpiceFiles\SCHEMATIC1
+
+
+ ****     Digital Input MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               DINSTM          
+      S0NAME 0               
+       S0TSW  500.000000E-12 
+       S0RLO     .5          
+       S0RHI    1.000000E+03 
+      S1NAME 1               
+       S1TSW  500.000000E-12 
+       S1RLO    1.000000E+03 
+       S1RHI     .5          
+      S2NAME X               
+       S2TSW  500.000000E-12 
+       S2RLO     .429        
+       S2RHI    1.16         
+      S3NAME R               
+       S3TSW  500.000000E-12 
+       S3RLO     .429        
+       S3RHI    1.16         
+      S4NAME F               
+       S4TSW  500.000000E-12 
+       S4RLO     .429        
+       S4RHI    1.16         
+      S5NAME Z               
+       S5TSW  500.000000E-12 
+       S5RLO    1.000000E+06 
+       S5RHI    1.000000E+06 
+
+
+**** 04/28/16 11:38:16 ***** PSpice 16.6.0 (October 2012) ***** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-zaid"  [ C:\Users\Zaid\Google Drive\Graduation Project\Orcad Simulation\3\Compensator-PSpiceFiles\SCHEMATIC1
+
+
+ ****     Digital IO  MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               IO_STM          
+        DRVL    0            
+        DRVH    0            
+       DtoA1 DtoA_STM        
+       DtoA2 DtoA_STM        
+       DtoA3 DtoA_STM        
+       DtoA4 DtoA_STM        
+       TPWRT  100.000000E+03 
+
+
+**** 04/28/16 11:38:16 ***** PSpice 16.6.0 (October 2012) ***** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-zaid"  [ C:\Users\Zaid\Google Drive\Graduation Project\Orcad Simulation\3\Compensator-PSpiceFiles\SCHEMATIC1
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(   N1)   14.0000  (   N2) 307.9E-06  (   N3) 307.9E-06  (   N4)   12.0000      
+
+(   N6)   11.9710  (   N8)    4.9970  (  N10)    4.9975  (N16028) 307.9E-06     
+
+(N18283) 120.1E-12 (X_M1.4)    0.0000 (X_M1.5)   14.0000 (X_M1.6)   14.0000     
+
+(X_M1.7) 307.9E-06 (X_M1.8) 307.9E-06 (X_M1.9)   14.0000 ($G_DGND)    0.0000    
+
+($G_DPWR)    5.0000                   (N154675) 307.9E-06                       
+
+(N154677) 83.50E-09                   (N157730)   11.9710                       
+
+(X_M1.10)   14.0000                   (X_M1.11)   14.0000                       
+
+(X_U3.MD4_RS_1)     .0100             (X_U3.MD4_RS_3)    5.0000                 
+
+(X_U3.MD4_RS_5)    5.0000             (X_U3.MD4_RS_6)    5.0000                 
+
+(X_U3.MD4_RS_7)    5.0000             (X_U3.MD4_Nor_1)    5.0000                
+
+(X_U3.MD4_Nor_2) 50.00E-09            (X_U3.MD4_Nor_3)    5.0000                
+
+(X_U3.MD4_Nor_4) 10.00E-06            (X_U3.MD4_OHS_2) 308.7E-06                
+
+(X_U3.MD4_OHS_3) 307.9E-06            (X_U3.MD5_Inv_1) 4.980E-09                
+
+(X_U3.MD5_Inv_2)    5.0000            (X_U3.MD5_OLS_1)    5.0000                
+
+(X_U3.MD5_OLS_2) 905.5E-09            (X_U3.MD5_OLS_3) 3.662E-12                
+
+(X_U3.MD2_Inv1_1) 20.00E-06           (X_U3.MD2_Inv1_2)    5.0000               
+
+(X_U3.MD2_Inv1_3)    5.0000           (X_U3.MD2_Inv2_1)    5.0000               
+
+(X_U3.MD2_Inv2_2)    5.0000           (X_U3.MD2_Inv2_3) 50.00E-09               
+
+(X_U3.MD2_Uvcc_2)    8.2000           (X_U3.MD2_Uvcc_3)    8.9000               
+
+(X_U3.MD2_Uvcc_4)    8.2000           (X_U3.MD4_Inv1_2)    5.0000               
+
+(X_U3.MD4_Inv2_2)    5.0000           (X_U3.MD4_Inv3_1) 5.000E-06               
+
+(X_U3.MD4_Inv3_2)    5.0000           (X_U3.MD4_Inv4_1) 3.333E-09               
+
+(X_U3.MD4_Inv4_2)    5.0000           (X_U3.MD4_Inv4_3)    5.0000               
+
+(X_U3.MD4_Uvbs_3)    5.0000           (X_U3.MD4_Uvbs_4)    8.2003               
+
+(X_U3.MD4_Uvbs_5)    8.9003           (X_U3.MD4_Uvbs_6)    8.2003               
+
+(X_U3.MD1_Trig1_3)     .7995          (X_U3.MD1_Trig1_4) 142.0E-09              
+
+(X_U3.MD1_Trig1_7)   15.0000          (X_U3.MD1_Trig2_3)    2.8899              
+
+(X_U3.MD1_Trig2_4)    2.2081          (X_U3.MD1_Trig2_7)   15.0000              
+
+(X_U3.MD2_Nand1_2)    5.0000          (X_U3.MD2_Nand1_4) 10.00E-06              
+
+(X_U3.MD2_Nand1_5)    5.0000          (X_U3.MD2_Nand2_1)    5.0000              
+
+(X_U3.MD2_Nand2_2)    0.0000          (X_U3.MD2_Nand2_4)    5.0000              
+
+(X_U3.MD2_Nand2_5)    5.0000          (X_U3.MD3_DlyHS_3)     .6123              
+
+(X_U3.MD3_DlyHS_4) 50.00E-06          (X_U3.MD3_DlyHS_5)    4.3233              
+
+(X_U3.MD3_DlyHS_6)    5.0000          (X_U3.MD3_DlyHS_7)    5.0000              
+
+(X_U3.MD3_DlyHS_8)    0.0000          (X_U3.MD3_DlyHS_9) 4.996E-09              
+
+(X_U3.MD3_DlyLS_3)     .6123          (X_U3.MD3_DlyLS_4)    5.0000              
+
+(X_U3.MD3_DlyLS_5)    4.3233          (X_U3.MD3_DlyLS_6)    5.0000              
+
+(X_U3.MD3_DlyLS_7)    0.0000          (X_U3.MD3_DlyLS_8)    5.0000              
+
+(X_U3.MD3_DlyHS_10)    4.9900         (X_U3.MD3_DlyHS_11)    5.0000             
+
+(X_U3.MD3_DlyHS_12)    4.9900         (X_U3.MD3_DlyHS_13)    5.0000             
+
+(X_U3.MD3_DlyHS_14) 5.006E-06         (X_U3.MD3_DlyLS_10)    5.0000             
+
+(X_U3.MD3_DlyLS_11)    5.0000         (X_U3.MD3_DlyLS_12)    5.0000             
+
+(X_U3.MD3_DlyLS_13)    5.0000         (X_U3.MD3_DlyLS_14)    2.5000             
+
+(X_U3.X_MD2_Uvcc_Comp.5)    5.0000    (X_U3.X_MD4_Uvbs_Comp.5)    5.0000        
+
+(X_U3.X_MD1_Trig1_Comp1.5)    5.0000  (X_U3.X_MD1_Trig2_Comp1.5)    0.0000      
+
+(X_U3.X_MD3_DlyHS_Comp1.5)    5.0000  (X_U3.X_MD3_DlyHS_Comp2.5)    0.0000      
+
+(X_U3.X_MD3_DlyLS_Comp1.5)    0.0000  (X_U3.X_MD3_DlyLS_Comp2.5)    5.0000  
+
+
+
+ DGTL NODE : STATE  DGTL NODE : STATE  DGTL NODE : STATE  DGTL NODE : STATE
+
+
+(N10$DtoA) : 1     
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V3        -1.400E-05
+    V_V7        -1.439E-04
+    X_M1.VFI2    1.400E-11
+    X_M1.VFI1    0.000E+00
+    X_U3.V_MD2_Nand1_V  -1.000E-05
+    X_U3.V_MD2_Nand2_V  -5.010E-06
+    X_U3.V_MD2_Inv1_V  -6.001E-08
+    X_U3.V_MD2_Inv2_V  -5.000E-08
+    X_U3.V_MD3_DlyHS_V0  -5.000E-06
+    X_U3.V_MD3_DlyHS_V1  -9.980E-09
+    X_U3.V_MD3_DlyHS_V2  -5.001E-06
+    X_U3.V_MD3_DlyLS_V0  -5.000E-06
+    X_U3.V_MD3_DlyLS_V1  -1.000E-08
+    X_U3.V_MD3_DlyLS_V2  -2.500E-06
+    X_U3.V_MD4_Inv1_V  -6.001E-08
+    X_U3.V_MD4_Inv2_V  -5.000E-08
+    X_U3.V_MD4_Nor_V  -5.000E-06
+    X_U3.V_MD4_Inv3_V  -4.990E+00
+    X_U3.V_MD4_RS_V1  -5.110E-06
+    X_U3.V_MD4_Inv4_V  -6.001E-08
+    X_U3.V_MD5_Inv_V  -6.001E-08
+    X$DIGIFPWR.VDPWR  -5.008E-03
+    X$DIGIFPWR.VDGND  -9.997E-06
+
+    TOTAL POWER DISSIPATION   2.50E+01  WATTS
+
+
+
+          JOB CONCLUDED
+
+**** 04/28/16 11:38:16 ***** PSpice 16.6.0 (October 2012) ***** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-zaid"  [ C:\Users\Zaid\Google Drive\Graduation Project\Orcad Simulation\3\Compensator-PSpiceFiles\SCHEMATIC1
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =         .31
+
